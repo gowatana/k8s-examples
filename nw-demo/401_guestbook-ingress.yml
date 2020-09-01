@@ -1,0 +1,16 @@
+---
+kind: Ingress
+apiVersion: networking.k8s.io/v1beta1
+metadata:
+  name: guestbook-ingress
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /guestbook
+        backend:
+          serviceName: frontend
+          servicePort: 80
+
